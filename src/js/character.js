@@ -8,14 +8,24 @@
     inventory: [quick slots (0-9), total (99)]
 */
 export class Character{
-    constructor(level, race, job, equipped, attributes, stats, inventory){
+    constructor(level, race, job, equipped, attributes, stats){
         this.level = level;
         this.race = race;
         this.job = job;
         this.equipped = equipped;
         this.attributes = attributes;
         this.stats = stats;
-        this.inventory = inventory;
     }
 }
 
+export class PlayerCharacter extends Character{
+    constructor(level, race, job, equipped, attributes, stats,name, inventory){
+        super(level, race, job, equipped, attributes, stats);
+        this.name = name;
+        this.inventory = inventory;
+    }
+}
+/*
+export class MonsterCharacter extends Character{
+    super(level, race, job, equipped, attributes, stats, inventory);
+    */
