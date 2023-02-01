@@ -91,6 +91,10 @@ test('Declare equippable classes', () => {
     expect(myEquippable.dexBonus).toEqual(3);
     expect(myEquippable.lckBonus).toEqual(4);
 });
+test('getBonuses', () => {
+    const myEquippable = new Equippable('sword', 10, 'main hand', 1, 2, 3, 4);
+    expect(myEquippable.myBonuses.toEqual([0, 0, 0, 0]))
+});
 
 describe('Loot class', () => {
 });
@@ -99,3 +103,4 @@ test('Declare loot class', () => {
     expect(myLoot.name).toEqual('Gold');
     expect(myLoot.value).toEqual(10);
 });
+
