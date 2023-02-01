@@ -10,7 +10,7 @@ describe('Character', () => {
 test('Declare a new character object', () => {
     const myChar = new Character(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13], ['apple']);
     expect(myChar.level).toEqual(1);
-    expect(myChar.race).toEqual('dork');
+    expect(myChar.race).toEqual('human');
     expect(myChar.job).toEqual('wizard');
     expect(myChar.equipped).toEqual(['bronze sword']);
     expect(myChar.attributes).toEqual([1,1]);
