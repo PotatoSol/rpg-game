@@ -29,7 +29,7 @@ test('addStats', () => {
 test('addAttributes', () => {
     const myChar = new Character(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13]);
     myChar.addAttributes([1,2]);
-    expect(myChar.attributes).toEqual([2, 2]);
+    expect(myChar.attributes).toEqual([2, 3]);
 });
 
 describe('PlayerCharacter', () => {
