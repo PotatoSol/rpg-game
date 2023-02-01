@@ -93,7 +93,7 @@ test('Declare equippable classes', () => {
 });
 test('getBonuses', () => {
     const myEquippable = new Equippable('sword', 10, 'main hand', 1, 2, 3, 4);
-    expect(myEquippable.myBonuses.toEqual([0, 0, 0, 0]))
+    expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4])
 });
 
 describe('Loot class', () => {
