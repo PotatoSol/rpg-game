@@ -26,7 +26,8 @@ export class Character{
 
     addStats(statChange){ //takes in a 4 element array 
         this.stats.forEach((statEle, index) => {
-            statEle += statChange[index];
+            let newStat = statEle + statChange[index];
+            this.stats[index] = newStat;
         });
     }
 }

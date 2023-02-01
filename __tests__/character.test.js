@@ -19,7 +19,12 @@ test('Declare a new character object', () => {
 test('Level up!', () => {
     const myChar = new Character(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13]);
     myChar.addLevel(1);
-    expect(myChar.level).toEqual(3);
+    expect(myChar.level).toEqual(2);
+});
+test('addStats', () => {
+    const myChar = new Character(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13]);
+    myChar.addStats([1,2,3,4]);
+    expect(myChar.stats).toEqual([10, 11, 12, 13]);
 });
 
 describe('PlayerCharacter', () => {
