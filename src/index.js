@@ -32,3 +32,6 @@
             Feet: +defense +misc
 */
 
+/* Game Object: 
+
+*/
