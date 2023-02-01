@@ -31,6 +31,12 @@ test('addAttributes', () => {
     myChar.addAttributes([1,2]);
     expect(myChar.attributes).toEqual([2, 3]);
 });
+test('getDamageRoll()', () => {
+    const myChar = new Character(1, 'human', 'rogue', ['bronze sword'], [1, 1], [1, 2, 4, 0]);
+    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqual(4);
+    expect(myChar.getDamageRoll()).toBeLessThanOrEqual(1);
+});
+
 
 describe('PlayerCharacter', () => {
 });

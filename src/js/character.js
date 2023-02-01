@@ -12,9 +12,9 @@ export class Character{
         this.level = level;
         this.race = race;
         this.job = job;
-        this.equipped = equipped;
+        this.equipped = equipped; //[main hand, off hand, head, chest, legs, feet]
         this.attributes = attributes;
-        this.stats = stats;
+        this.stats = stats; //[strength, intelligence, dexterity, luck]
     }
 
     addLevel(levelDelta){
@@ -38,6 +38,17 @@ export class Character{
 
     getAdjustedStats(){
         //returns stats after calculating racial bonuses, and equipment, and temporary stats
+    }
+
+    getDamageRoll(){ //based on stats, calculate a damaging hit
+        let min = Math.floor(this.stats[2]/4);
+        let max = this.stats[0] + (this.stats[2] / 4 );
+        let roll = Math.floor(Math.random() * (max - min) + (min)); //max = strength, min = dex/4
+        let critRoll = Math.floor(Math.random() * (100 - this.stats[3]) + this.stats[3]);
+        if (critRoll >= 100){
+            roll *= 2.5;
+        }
+        return roll;
     }
 }
 
