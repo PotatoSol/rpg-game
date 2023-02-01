@@ -76,20 +76,20 @@ describe('Item class', () => {
 });
 test('Declare item classes', () => {
     const myItem = new Item('apple', 5);
-    expect(myItem.name).toEqual('orange');
-    expect(myItem.value).toEqual(6);
+    expect(myItem.name).toEqual('apple');
+    expect(myItem.value).toEqual(5);
 });
 
 describe('Equippable class', () => {
 });
 test('Declare equippable classes', () => {
-    const myEquippable = new Equippable('sword', 10, 1, 2, 3, 4);
-    expect(myEquippable.name).toEqual('axe');
-    expect(myEquippable.value).toEqual(11);
-    expect(myEquippable.strBonus).toEqual(2);
-    expect(myEquippable.strBonus).toEqual(3);
-    expect(myEquippable.strBonus).toEqual(4);
-    expect(myEquippable.strBonus).toEqual(5);
+    const myEquippable = new Equippable('sword', 10, 'main hand', 1, 2, 3, 4);
+    expect(myEquippable.name).toEqual('sword');
+    expect(myEquippable.value).toEqual(10);
+    expect(myEquippable.strBonus).toEqual(1);
+    expect(myEquippable.intBonus).toEqual(2);
+    expect(myEquippable.dexBonus).toEqual(3);
+    expect(myEquippable.lckBonus).toEqual(4);
 });
 
 describe('Loot class', () => {
@@ -97,5 +97,5 @@ describe('Loot class', () => {
 test('Declare loot class', () => {
     const myLoot = new Loot('Gold', 10);
     expect(myLoot.name).toEqual('Gold');
-    expect(myLoot.value).toEqual(11);
+    expect(myLoot.value).toEqual(10);
 });
