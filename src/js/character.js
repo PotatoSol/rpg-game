@@ -30,6 +30,15 @@ export class Character{
             this.stats[index] = newStat;
         });
     }
+
+    addAttributes(attributeChange){
+        this.attributes[0] += attributeChange[0];
+        this.attributes[1] += attributeChange[1];
+    }
+
+    getAdjustedStats(){
+        //returns stats after calculating racial bonuses, and equipment, and temporary stats
+    }
 }
 
 export class PlayerCharacter extends Character{
