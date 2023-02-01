@@ -4,7 +4,8 @@
 //   expect(triangle.side2).toEqual(4);
 //   expect(triangle.side3).toEqual(5);
 // });
-import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character";'./../src/js/character.js';
+import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character";
+import {Item, Equippable, Loot} from "../src/js/items";
 describe('Character', () => {
 });
 test('Declare a new character object', () => {
@@ -71,3 +72,30 @@ test('Declare a Monster character', () => {
     expect(aMonsterChar.stats).toEqual([10, 11, 12, 13]);
 });
 
+describe('Item class', () => {
+});
+test('Declare item classes', () => {
+    const myItem = new Item('apple', 5);
+    expect(myItem.name).toEqual('orange');
+    expect(myItem.value).toEqual(6);
+});
+
+describe('Equippable class', () => {
+});
+test('Declare equippable classes', () => {
+    const myEquippable = new Equippable('sword', 10, 1, 2, 3, 4);
+    expect(myEquippable.name).toEqual('axe');
+    expect(myEquippable.value).toEqual(11);
+    expect(myEquippable.strBonus).toEqual(2);
+    expect(myEquippable.strBonus).toEqual(3);
+    expect(myEquippable.strBonus).toEqual(4);
+    expect(myEquippable.strBonus).toEqual(5);
+});
+
+describe('Loot class', () => {
+});
+test('Declare loot class', () => {
+    const myLoot = new Loot('Gold', 10);
+    expect(myLoot.name).toEqual('Gold');
+    expect(myLoot.value).toEqual(11);
+});
