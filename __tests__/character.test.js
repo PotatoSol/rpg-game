@@ -35,8 +35,8 @@ describe('MonsterCharacter', () => {
 });
 test('Declare a Monster character', () => {
     const aMonsterChar = new MonsterCharacter(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13], 6, ['horn']);
-    expect(aMonsterChar.hostility).toEqual(8);
-    expect(aMonsterChar.loot).toEqual(['apple']);
+    expect(aMonsterChar.hostility).toEqual(6);
+    expect(aMonsterChar.loot).toEqual(['horn']);
     expect(aMonsterChar.level).toEqual(1);
     expect(aMonsterChar.race).toEqual('human');
     expect(aMonsterChar.job).toEqual('wizard');
