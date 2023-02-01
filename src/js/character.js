@@ -7,7 +7,7 @@
     equipped: [main hand, off hand, head, chest, legs, feet]
     inventory: [quick slots (0-9), total (99)]
 */
-export default class Character{
+export class Character{
     constructor(level, race, job, equipped, attributes, stats, inventory){
         this.level = level;
         this.race = race;

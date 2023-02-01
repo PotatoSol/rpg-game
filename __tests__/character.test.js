@@ -4,7 +4,7 @@
 //   expect(triangle.side2).toEqual(4);
 //   expect(triangle.side3).toEqual(5);
 // });
-import Character from "../src/js/character";'./../src/js/character.js';
+import {Character} from "../src/js/character";'./../src/js/character.js';
 describe('Character', () => {
 });
 test('Declare a new character object', () => {
