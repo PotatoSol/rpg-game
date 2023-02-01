@@ -48,7 +48,7 @@ export class Character{
         if (critRoll >= 100){
             roll *= 2.5;
         }
-        return roll;
+        return Math.floor(roll);
     }
 }
 

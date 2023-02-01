@@ -31,10 +31,15 @@ test('addAttributes', () => {
     myChar.addAttributes([1,2]);
     expect(myChar.attributes).toEqual([2, 3]);
 });
-test('getDamageRoll()', () => {
+test('getDamageRoll() with no luck', () => {
     const myChar = new Character(1, 'human', 'rogue', ['bronze sword'], [1, 1], [1, 2, 4, 0]);
-    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqual(4);
-    expect(myChar.getDamageRoll()).toBeLessThanOrEqual(1);
+    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqual(1);
+    expect(myChar.getDamageRoll()).toBeLessThanOrEqual(2);
+});
+test('getDamageRoll() with 100 luck', () => {
+    const myChar = new Character(1, 'human', 'rogue', ['bronze sword'], [1, 1], [3, 2, 12, 100]);
+    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqua2(700);
+    expect(myChar.getDamageRoll()).toBeLessThanOrEqual(15);
 });
 
 
