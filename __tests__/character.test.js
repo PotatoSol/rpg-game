@@ -38,7 +38,7 @@ test('getDamageRoll() with no luck', () => {
 });
 test('getDamageRoll() with 100 luck', () => {
     const myChar = new Character(1, 'human', 'rogue', ['bronze sword'], [1, 1], [3, 2, 12, 100]);
-    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqua2(700);
+    expect(myChar.getDamageRoll()).toBeGreaterThanOrEqual(7);
     expect(myChar.getDamageRoll()).toBeLessThanOrEqual(15);
 });
 
