@@ -16,6 +16,19 @@ export class Character{
         this.attributes = attributes;
         this.stats = stats;
     }
+
+    addLevel(levelDelta){
+        this.level += levelDelta;
+    }
+
+    changeEquipment(newEquipment){//not sure how i want to do this yet
+    }
+
+    addStats(statChange){ //takes in a 4 element array 
+        this.stats.forEach((statEle, index) => {
+            statEle += statChange[index];
+        });
+    }
 }
 
 export class PlayerCharacter extends Character{
@@ -29,7 +42,9 @@ export class PlayerCharacter extends Character{
 export class MonsterCharacter extends Character{
     constructor(level, race, job, equipped, attributes, stats, hostility, loot){
         super(level, race, job, equipped, attributes, stats);
-        this.hostility = hostility;
+        this.hostility = hostility; //-1 for passive characters, 101 for always hostile, if hostility > level, attack, else dont
         this.loot = loot;
     }
 }
+
+

@@ -16,6 +16,11 @@ test('Declare a new character object', () => {
     expect(myChar.attributes).toEqual([1,1]);
     expect(myChar.stats).toEqual([10, 11, 12, 13]);
 });
+test('Level up!', () => {
+    const myChar = new Character(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13]);
+    myChar.addLevel(1);
+    expect(myChar.level).toEqual(3);
+});
 
 describe('PlayerCharacter', () => {
 });
@@ -44,3 +49,4 @@ test('Declare a Monster character', () => {
     expect(aMonsterChar.attributes).toEqual([1,1]);
     expect(aMonsterChar.stats).toEqual([10, 11, 12, 13]);
 });
+
