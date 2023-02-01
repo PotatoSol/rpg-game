@@ -25,7 +25,11 @@ export class PlayerCharacter extends Character{
         this.inventory = inventory;
     }
 }
-/*
+
 export class MonsterCharacter extends Character{
-    super(level, race, job, equipped, attributes, stats, inventory);
-    */
+    constructor(level, race, job, equipped, attributes, stats, hostility, loot){
+        super(level, race, job, equipped, attributes, stats);
+        this.hostility = hostility;
+        this.loot = loot;
+    }
+}

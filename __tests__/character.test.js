@@ -4,7 +4,7 @@
 //   expect(triangle.side2).toEqual(4);
 //   expect(triangle.side3).toEqual(5);
 // });
-import {Character, PlayerCharacter} from "../src/js/character";'./../src/js/character.js';
+import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character";'./../src/js/character.js';
 describe('Character', () => {
 });
 test('Declare a new character object', () => {
@@ -29,4 +29,18 @@ test('Declare the player\'s character', () => {
     expect(myPlayerChar.equipped).toEqual(['bronze sword']);
     expect(myPlayerChar.attributes).toEqual([1,1]);
     expect(myPlayerChar.stats).toEqual([10, 11, 12, 13]);
+});
+
+describe('MonsterCharacter', () => {
+});
+test('Declare a Monster character', () => {
+    const aMonsterChar = new MonsterCharacter(1, 'human', 'wizard', ['bronze sword'], [1, 1], [10, 11, 12, 13], 6, ['horn']);
+    expect(aMonsterChar.hostility).toEqual(8);
+    expect(aMonsterChar.loot).toEqual(['apple']);
+    expect(aMonsterChar.level).toEqual(1);
+    expect(aMonsterChar.race).toEqual('human');
+    expect(aMonsterChar.job).toEqual('wizard');
+    expect(aMonsterChar.equipped).toEqual(['bronze sword']);
+    expect(aMonsterChar.attributes).toEqual([1,1]);
+    expect(aMonsterChar.stats).toEqual([10, 11, 12, 13]);
 });
