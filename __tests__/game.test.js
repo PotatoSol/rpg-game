@@ -28,3 +28,9 @@ test('Remove a monster', () => {
   newGame.removeMonster(myMonster);
   expect(newGame.monsters).toEqual([]);
 });
+test('Check alive', () => {
+  const newGame = new Game();
+  const myPlayerChar = new PlayerCharacter(1, 'human', 'mage', [], [1, 1], [10, 11, 12, 13], 'john', []);
+  newGame.setPlayer(myPlayerChar);
+  expect(newGame.checkAlive(newGame.player)).toEqual(false);
+});
