@@ -40,6 +40,6 @@ describe('EmptyItem class', () => {
 });
 test('Declare EmptyItem class', () => {
     const myEmptyItem = new EmptyItem();
-    expect(myEmptyItem.name).toEqual('Empty1');
-    expect(myEmptyItem.value).toEqual(-11);
+    expect(myEmptyItem.name).toEqual('Empty');
+    expect(myEmptyItem.value).toEqual(-1);
 });
