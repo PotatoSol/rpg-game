@@ -1,5 +1,5 @@
 import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character.js";
-import {Item, Equippable, Loot} from "../src/js/items.js";
+import {Item, Equippable, Loot, EmptyItem} from "../src/js/items.js";
 
 describe('Character', () => {
 });
@@ -8,7 +8,7 @@ test('Declare a new character object', () => {
     expect(myChar.level).toEqual(1);
     expect(myChar.race).toEqual('human');
     expect(myChar.job).toEqual('wizard');
-    expect(myChar.equipped).toEqual(['bronze sword']);
+    expect(myChar.equipped[0]).toEqual('bronze sword');
     expect(myChar.attributes).toEqual([1,1]);
     expect(myChar.stats).toEqual([10, 11, 12, 13]);
 });
@@ -48,7 +48,7 @@ test('Declare the player\'s character', () => {
     expect(myPlayerChar.level).toEqual(1);
     expect(myPlayerChar.race).toEqual('human');
     expect(myPlayerChar.job).toEqual('wizard');
-    expect(myPlayerChar.equipped).toEqual(['bronze sword']);
+    expect(myPlayerChar.equipped[0]).toEqual('bronze sword');
     expect(myPlayerChar.attributes).toEqual([1,1]);
     expect(myPlayerChar.stats).toEqual([10, 11, 12, 13]);
 });
@@ -57,14 +57,21 @@ test('Equip an axe', () => {
     var myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
     const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13], 'john', [myAxe]);
     expect(myPlayerChar.inventory).toEqual([myAxe]);
-    expect(myPlayerChar.equipped).toEqual([mySword]);
+    expect(myPlayerChar.equipped[0]).toEqual(mySword);
     myPlayerChar.changeEquipment(myAxe);
     expect(myPlayerChar.inventory).toEqual([mySword]);
-    expect(myPlayerChar.equipped).toEqual([myAxe]);
+    expect(myPlayerChar.equipped[0]).toEqual(myAxe);
 });
 test('getBonuses', () => {
     var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
     expect(mySword.getBonuses()).toEqual([1, 2, 3, 4]);
+});
+test('removeEmptyItemsFromInv', () => {
+    let anEmptyItem = new EmptyItem()
+    let apple = new Loot('apple', 10);
+    const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [], [1, 1], [10, 11, 12, 13], 'john', [anEmptyItem, anEmptyItem, anEmptyItem, apple]);
+    myPlayerChar.removeEmptyItemsFromInv();
+    expect(myPlayerChar.inventory).toEqual([anEmptyItem]);
 });
 
 describe('MonsterCharacter', () => {
@@ -76,7 +83,7 @@ test('Declare a Monster character', () => {
     expect(aMonsterChar.level).toEqual(1);
     expect(aMonsterChar.race).toEqual('human');
     expect(aMonsterChar.job).toEqual('wizard');
-    expect(aMonsterChar.equipped).toEqual(['bronze sword']);
+    expect(aMonsterChar.equipped[0]).toEqual('bronze sword');
     expect(aMonsterChar.attributes).toEqual([1,1]);
     expect(aMonsterChar.stats).toEqual([10, 11, 12, 13]);
 });

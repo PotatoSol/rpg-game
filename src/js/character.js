@@ -7,12 +7,21 @@
     equipped: [main hand, off hand, head, chest, legs, feet]
     inventory: [quick slots (0-9), total (99)]
 */
+import {EmptyItem} from "./items.js";
+
 export class Character{
     constructor(level, race, job, equipped, attributes, stats){
         this.level = level;
         this.race = race;
         this.job = job;
-        this.equipped = equipped; //[main hand, off hand, head, chest, legs, feet]
+        this.equipped = [];
+        for(let i = 0; i<5; i++){  //[main, off, head, chest, legs, feet]
+            let anEmptyItem = new EmptyItem();
+            this.equipped.push(anEmptyItem)
+            if(equipped[i]){
+                this.equipped[i] = equipped[i]
+            }
+        }
         this.attributes = attributes;
         this.stats = stats; //[strength, intelligence, dexterity, luck]
     }
@@ -21,7 +30,8 @@ export class Character{
         this.level += levelDelta;
     }
 
-    changeEquipment(newEquipment){//not sure how i want to do this yet
+    //going to need empty items to fill the equipment slots
+    changeEquipment(newEquipment){//not sure how i want to do this ye
         let slot = newEquipment.getSlot;
         this.equipped[slot] = newEquipment;
         return newEquipment;
@@ -41,6 +51,7 @@ export class Character{
 
     getAdjustedStats(){
         //returns stats after calculating racial bonuses, and equipment, and temporary stats
+        
     }
 
     getDamageRoll(){ //based on stats, calculate a damaging hit
@@ -60,6 +71,7 @@ export class PlayerCharacter extends Character{
         super(level, race, job, equipped, attributes, stats);
         this.name = name;
         this.inventory = inventory;
+        this.exp = 0;
     }
 
     changeEquipment(newEquipment){
@@ -76,8 +88,22 @@ export class PlayerCharacter extends Character{
         this.inventory = returnInv;
         this.equipped[slot] = newEquipment;
         return newEquipment;
-
     }
+
+    removeEmptyItemsFromInv(){
+        let returnInv = [];
+        this.inventory.forEach(ele => {
+            if(ele.value !== -1){
+                returnInv.push(ele);
+            }
+        });
+        this.inventory = returnInv;
+    }
+    /*
+    calculateExp(){
+        //idk
+    }
+    */
 }
 
 export class MonsterCharacter extends Character{
