@@ -57,6 +57,16 @@ test('Declare the player\'s character', () => {
     expect(myPlayerChar.attributes).toEqual([1,1]);
     expect(myPlayerChar.stats).toEqual([10, 11, 12, 13]);
 });
+test('Equip an axe', () => {
+    const mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    const myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
+    const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13], 'john', [myAxe]);
+    expect(myPlayerChar.inventory).toEqual([myAxe]);
+    expect(myPlayerChar.equipped).toEqual([mySword]);
+    myPlayerChar.changeEquipment(myAxe);
+    expect(myPlayerChar.inventory).toEqual([mySword]);
+    expect(myPlayerChar.equipped).toEqual([myAxe]);
+});
 
 describe('MonsterCharacter', () => {
 });
@@ -96,8 +106,8 @@ test('getBonuses', () => {
     expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4])
 });
 test('getSlot', () => {
-    const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
-    expect(myEquippable.getSlot()).toEqual(1)
+    const myEquippable = new Equippable('boots', 10, 'feet', 1, 2, 3, 4);
+    expect(myEquippable.getSlot()).toEqual(4)
 });
 
 describe('Loot class', () => {

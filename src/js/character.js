@@ -63,15 +63,17 @@ export class PlayerCharacter extends Character{
     }
 
     changeEquipment(newEquipment){
-        let slot = newEquipment.getSlot;
+        let slot = newEquipment.getSlot();
         //remove newequip from inv
         //put old equip in inv
+        let returnInv = []
         this.inventory.forEach(ele => function(){
-            if(ele.name == newEquipment.name){
-                this.inventory.pop(ele)
+            if(ele.name !== newEquipment.name){
+                returnInv.push(ele);
             }
         });
-        this.inventory.append(this.equipped[slot]);
+        returnInv.push(this.equipped[slot]);
+        this.inventory = returnInv;
         this.equipped[slot] = newEquipment;
         return newEquipment;
 
