@@ -67,6 +67,10 @@ test('Equip an axe', () => {
     expect(myPlayerChar.inventory).toEqual([mySword]);
     expect(myPlayerChar.equipped).toEqual([myAxe]);
 });
+test('getBonuses', () => {
+    const mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    expect(mySword.getBonuses()).toEqual([1, 2, 3, 5]);
+});
 
 describe('MonsterCharacter', () => {
 });
