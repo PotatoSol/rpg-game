@@ -53,5 +53,5 @@ test('Check Fight', () => {
 test('generateRandomEquip', () => {
   const newGame = new Game();
   let myEquip = newGame.generateRandomEquip(90, 'main', 'sword');
-  expect(myEquip.equipSlot).toEqual('off');
+  expect(myEquip.equipSlot).toEqual('main');
 });
