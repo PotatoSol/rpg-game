@@ -71,7 +71,7 @@ test('removeEmptyItemsFromInv', () => {
     let apple = new Loot('apple', 10);
     const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [], [1, 1], [10, 11, 12, 13], 'john', [anEmptyItem, anEmptyItem, anEmptyItem, apple]);
     myPlayerChar.removeEmptyItemsFromInv();
-    expect(myPlayerChar.inventory).toEqual([anEmptyItem]);
+    expect(myPlayerChar.inventory).toEqual([apple]);
 });
 
 describe('MonsterCharacter', () => {
