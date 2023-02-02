@@ -1,4 +1,4 @@
-import {Item, Equippable, Loot} from "../src/js/items";
+import {Item, Equippable, Loot, EmptyItem} from "../src/js/items.js";
 
 describe('Item class', () => {
 });
@@ -21,11 +21,11 @@ test('Declare equippable classes', () => {
 });
 test('getBonuses', () => {
     const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
-    expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4])
+    expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4]);
 });
 test('getSlot', () => {
     const myEquippable = new Equippable('boots', 10, 'feet', 1, 2, 3, 4);
-    expect(myEquippable.getSlot()).toEqual(4)
+    expect(myEquippable.getSlot()).toEqual(4);
 });
 
 describe('Loot class', () => {
@@ -34,4 +34,12 @@ test('Declare loot class', () => {
     const myLoot = new Loot('Gold', 10);
     expect(myLoot.name).toEqual('Gold');
     expect(myLoot.value).toEqual(10);
+});
+
+describe('EmptyItem class', () => {
+});
+test('Declare EmptyItem class', () => {
+    const myEmptyItem = new EmptyItem();
+    expect(myEmptyItem.name).toEqual('Empty1');
+    expect(myEmptyItem.value).toEqual(-11);
 });

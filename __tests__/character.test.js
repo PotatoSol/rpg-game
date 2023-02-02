@@ -1,10 +1,6 @@
-// test 1('', () => {
-//   const  = new 
-//   expect(x).toEqual(y);
-//   expect(triangle.side2).toEqual(4);
-//   expect(triangle.side3).toEqual(5);
-// });
-import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character";
+import {Character, PlayerCharacter, MonsterCharacter} from "../src/js/character.js";
+import {Item, Equippable, Loot} from "../src/js/items.js";
+
 describe('Character', () => {
 });
 test('Declare a new character object', () => {
@@ -57,8 +53,8 @@ test('Declare the player\'s character', () => {
     expect(myPlayerChar.stats).toEqual([10, 11, 12, 13]);
 });
 test('Equip an axe', () => {
-    const mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
-    const myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
+    var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    var myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
     const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13], 'john', [myAxe]);
     expect(myPlayerChar.inventory).toEqual([myAxe]);
     expect(myPlayerChar.equipped).toEqual([mySword]);
@@ -67,7 +63,7 @@ test('Equip an axe', () => {
     expect(myPlayerChar.equipped).toEqual([myAxe]);
 });
 test('getBonuses', () => {
-    const mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
     expect(mySword.getBonuses()).toEqual([1, 2, 3, 4]);
 });
 

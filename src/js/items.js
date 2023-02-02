@@ -1,4 +1,4 @@
-export class Item{ //equipable
+export class Item{ //equippable, loot, emptyitem
   constructor(name, value){
     this.name = name;
     this.value = value;
@@ -52,7 +52,8 @@ export class Loot extends Item{
 }
 
 export class EmptyItem extends Item{
-  constructor(name, value){
+  constructor(){
+    super();
     this.name = "Empty";
     this.value = -1;
   }
