@@ -31,7 +31,8 @@ export class Character{
     }
 
     //going to need empty items to fill the equipment slots
-    changeEquipment(newEquipment){//not sure how i want to do this ye
+    //untested
+    changeEquipment(newEquipment){//not sure how i want to do this yet 
         let slot = newEquipment.getSlot;
         this.equipped[slot] = newEquipment;
         return newEquipment;
@@ -74,7 +75,7 @@ export class PlayerCharacter extends Character{
         this.exp = 0;
     }
 
-    changeEquipment(newEquipment){
+    changeEquipment(newEquipment){ //untested
         let slot = newEquipment.getSlot();
         //remove newequip from inv
         //put old equip in inv

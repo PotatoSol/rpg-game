@@ -25,8 +25,6 @@ export class Game{
     });
     this.monsters = returnMonsters;
   } 
-
-  //untested
   checkAlive(aCharacter){ //should also mark character for death
     //or maybe check if they're alive after the cmobat then do stuff based off that in there? idk
 
@@ -39,7 +37,7 @@ export class Game{
   fight(character1, character2){
     let damage1 = character1.getDamageRoll();
     let damage2 = character2.getDamageRoll();
-    character1.attributes[0] - damage2;
-    character2.attributes[0] - damage1;
+    character1.attributes[0] -= damage2;
+    character2.attributes[0] -= damage1;
   }
 }

@@ -36,3 +36,15 @@ test('Check alive', () => {
   newGame.setPlayer(myPlayerChar);
   expect(newGame.checkAlive(newGame.player)).toEqual(true);
 });
+test('Check Fight', () => {
+  const newGame = new Game();
+  const myPlayerChar = new PlayerCharacter(1, 'human', 'mage', [], [1, 1], [10, 11, 12, 13], 'john', []);
+  const myMonster = new MonsterCharacter(1, 'orc', 'warrior', [], [1, 1], [10, 11, 12, 13], 6, ['horn']);
+  newGame.setPlayer(myPlayerChar);
+  newGame.addMonster(myMonster);
+  let currPlayerHealth = newGame.player.attributes[0];
+  let currMonsterHealth = newGame.monsters[0].attributes[0];
+  newGame.fight(newGame.player, newGame.monsters[0]);
+  expect(newGame.player.attributes[0]).toBeLessThan(currPlayerHealth);
+  expect(newGame.monsters[0].attributes[0]).toBeLessThan(currMonsterHealth);
+});
