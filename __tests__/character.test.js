@@ -83,7 +83,7 @@ test('Declare item classes', () => {
 describe('Equippable class', () => {
 });
 test('Declare equippable classes', () => {
-    const myEquippable = new Equippable('sword', 10, 'main hand', 1, 2, 3, 4);
+    const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
     expect(myEquippable.name).toEqual('sword');
     expect(myEquippable.value).toEqual(10);
     expect(myEquippable.strBonus).toEqual(1);
@@ -92,8 +92,12 @@ test('Declare equippable classes', () => {
     expect(myEquippable.lckBonus).toEqual(4);
 });
 test('getBonuses', () => {
-    const myEquippable = new Equippable('sword', 10, 'main hand', 1, 2, 3, 4);
+    const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
     expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4])
+});
+test('getSlot', () => {
+    const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    expect(myEquippable.getSlot()).toEqual(2)
 });
 
 describe('Loot class', () => {
