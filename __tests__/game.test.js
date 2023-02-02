@@ -35,6 +35,8 @@ test('Check alive', () => {
   const myPlayerChar = new PlayerCharacter(1, 'human', 'mage', [], [1, 1], [10, 11, 12, 13], 'john', []);
   newGame.setPlayer(myPlayerChar);
   expect(newGame.checkAlive(newGame.player)).toEqual(true);
+  newGame.player.attributes[0] = 0;
+  expect(newGame.checkAlive(newGame.player)).toEqual(false);
 });
 test('Check Fight', () => {
   const newGame = new Game();
@@ -47,4 +49,9 @@ test('Check Fight', () => {
   newGame.fight(newGame.player, newGame.monsters[0]);
   expect(newGame.player.attributes[0]).toBeLessThan(currPlayerHealth);
   expect(newGame.monsters[0].attributes[0]).toBeLessThan(currMonsterHealth);
+});
+test('generateRandomEquip', () => {
+  const newGame = new Game();
+  let myEquip = newGame.generateRandomEquip(90, 'main', 'sword');
+  expect(myEquip.equipSlot).toEqual('off');
 });
