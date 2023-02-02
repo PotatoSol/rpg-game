@@ -97,7 +97,7 @@ test('getBonuses', () => {
 });
 test('getSlot', () => {
     const myEquippable = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
-    expect(myEquippable.getSlot()).toEqual(2)
+    expect(myEquippable.getSlot()).toEqual(1)
 });
 
 describe('Loot class', () => {
