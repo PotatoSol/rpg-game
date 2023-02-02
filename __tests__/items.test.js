@@ -24,10 +24,23 @@ test('getBonuses', () => {
     expect(myEquippable.getBonuses()).toEqual([1, 2, 3, 4]);
 });
 test('getSlot', () => {
+    const myEquippable0 = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    expect(myEquippable0.getSlot()).toEqual(0);
+    const myEquippable1 = new Equippable('shield', 10, 'off', 1, 2, 3, 4);
+    expect(myEquippable1.getSlot()).toEqual(1);
+    const myEquippable2 = new Equippable('helmet', 10, 'head', 1, 2, 3, 4);
+    expect(myEquippable2.getSlot()).toEqual(2);
+    const myEquippable3 = new Equippable('chestplate', 10, 'chest', 1, 2, 3, 4);
+    expect(myEquippable3.getSlot()).toEqual(3);
+    const myEquippable4 = new Equippable('legplate', 10, 'legs', 1, 2, 3, 4);
+    expect(myEquippable4.getSlot()).toEqual(4);
     const myEquippable = new Equippable('boots', 10, 'feet', 1, 2, 3, 4);
-    expect(myEquippable.getSlot()).toEqual(4);
+    expect(myEquippable.getSlot()).toEqual(5);
 });
-
+test('getBonuses', () => {
+  var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+  expect(mySword.getBonuses()).toEqual([1, 2, 3, 4]);
+});
 describe('Loot class', () => {
 });
 test('Declare loot class', () => {

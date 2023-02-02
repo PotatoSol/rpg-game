@@ -52,10 +52,23 @@ export class Character{
 
     getAdjustedStats(){
         //returns stats after calculating racial bonuses, and equipment, and temporary stats
-        
+        let bonuses = [0, 0, 0, 0];
+        this.equipped.forEach(ele => {
+            if(ele.itemType == "equippable"){
+                for(let i = 0; i<4; i++){
+                    bonuses[i] += ele.getBonuses()[i];
+                }
+            }
+        });
+        for(let j = 0; j<4; j++){
+            bonuses[j] += this.stats[j];
+        }
+        console.log(bonuses);
+        return bonuses;
     }
 
     getDamageRoll(){ //based on stats, calculate a damaging hit
+        //forgot to included bonsues from items
         let min = Math.floor(this.stats[2]/4);
         let max = this.stats[0] + (this.stats[2] / 4 );
         let roll = Math.floor(Math.random() * (max - min) + (min)); //max = strength, min = dex/4

@@ -62,9 +62,11 @@ test('Equip an axe', () => {
     expect(myPlayerChar.inventory).toEqual([mySword]);
     expect(myPlayerChar.equipped[0]).toEqual(myAxe);
 });
-test('getBonuses', () => {
+test('getAdjustedStats', () => {
     var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
-    expect(mySword.getBonuses()).toEqual([1, 2, 3, 4]);
+    var myShield = new Equippable('shield', 10, 'off', 5, 6, 7, 8);
+    const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword, myShield], [1, 1], [10, 11, 12, 13], 'john', []);
+    expect(myPlayerChar.getAdjustedStats()).toEqual([16, 19, 22, 25]);
 });
 test('removeEmptyItemsFromInv', () => {
     let anEmptyItem = new EmptyItem()
