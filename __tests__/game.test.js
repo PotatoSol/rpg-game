@@ -23,10 +23,12 @@ test('Remove a monster', () => {
   const newGame = new Game();
   const myPlayerChar = new PlayerCharacter(1, 'human', 'mage', [], [1, 1], [10, 11, 12, 13], 'john', []);
   const myMonster = new MonsterCharacter(1, 'orc', 'warrior', [], [1, 1], [10, 11, 12, 13], 6, ['horn']);
+  const myOtherMonsterChar = new MonsterCharacter(1, 'dog', 'warrior', ['bronze sword'], [1, 1], [10, 11, 12, 13], 6, ['horn'])
   newGame.setPlayer(myPlayerChar);
   newGame.addMonster(myMonster);
+  newGame.addMonster(myOtherMonsterChar);
   newGame.removeMonster(myMonster);
-  expect(newGame.monsters).toEqual([]);
+  expect(newGame.monsters).toEqual([myOtherMonsterChar]);
 });
 test('Check alive', () => {
   const newGame = new Game();
