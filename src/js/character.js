@@ -33,7 +33,7 @@ export class Character{
     //going to need empty items to fill the equipment slots
     //untested
     changeEquipment(newEquipment){//not sure how i want to do this yet 
-        let slot = newEquipment.getSlot;
+        let slot = newEquipment.getSlot();
         this.equipped[slot] = newEquipment;
         return newEquipment;
     }
@@ -63,16 +63,14 @@ export class Character{
         for(let j = 0; j<4; j++){
             bonuses[j] += this.stats[j];
         }
-        console.log(bonuses);
         return bonuses;
     }
 
     getDamageRoll(){ //based on stats, calculate a damaging hit
-        //forgot to included bonsues from items
-        let min = Math.floor(this.stats[2]/4);
-        let max = this.stats[0] + (this.stats[2] / 4 );
+        let min = Math.floor(this.getAdjustedStats()[2]/4);
+        let max = this.stats[0] + (this.getAdjustedStats()[2] / 4 );
         let roll = Math.floor(Math.random() * (max - min) + (min)); //max = strength, min = dex/4
-        let critRoll = Math.floor(Math.random() * (100 - this.stats[3]) + this.stats[3]);
+        let critRoll = Math.floor(Math.random() * (100 - this.getAdjustedStats()[3]) + this.getAdjustedStats()[3]);
         if (critRoll >= 100){
             roll *= 2.5;
         }
@@ -93,8 +91,13 @@ export class PlayerCharacter extends Character{
         //remove newequip from inv
         //put old equip in inv
         let returnInv = []
-        this.inventory.forEach(ele => function(){
+        let found = false;
+        this.inventory.forEach(ele => {
             if(ele.name !== newEquipment.name){
+                returnInv.push(ele);
+            }else if((ele.name === newEquipment.name) && (found === false)){
+                found = true;
+            }else{
                 returnInv.push(ele);
             }
         });

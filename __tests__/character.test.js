@@ -37,6 +37,14 @@ test('getDamageRoll() with 100 luck', () => {
     expect(myChar.getDamageRoll()).toBeGreaterThanOrEqual(7);
     expect(myChar.getDamageRoll()).toBeLessThanOrEqual(15);
 });
+test('changeEquipment()', () => {
+    var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
+    var myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
+    const myChar = new Character(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13]);
+    myChar.changeEquipment(myAxe);
+    expect(myChar.equipped[0]).toEqual(myAxe);
+});
+
 
 
 describe('PlayerCharacter', () => {
@@ -55,11 +63,12 @@ test('Declare the player\'s character', () => {
 test('Equip an axe', () => {
     var mySword = new Equippable('sword', 10, 'main', 1, 2, 3, 4);
     var myAxe = new Equippable('axe', 10, 'main', 1, 2, 3, 4);
-    const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13], 'john', [myAxe]);
-    expect(myPlayerChar.inventory).toEqual([myAxe]);
+    var myLance = new Equippable('lance', 10, 'main', 1, 2, 3, 4);
+    const myPlayerChar = new PlayerCharacter(1, 'human', 'wizard', [mySword], [1, 1], [10, 11, 12, 13], 'john', [myAxe, myAxe, myLance]);
+    expect(myPlayerChar.inventory).toEqual([myAxe, myAxe, myLance]);
     expect(myPlayerChar.equipped[0]).toEqual(mySword);
     myPlayerChar.changeEquipment(myAxe);
-    expect(myPlayerChar.inventory).toEqual([mySword]);
+    expect(myPlayerChar.inventory).toEqual([myAxe, myLance, mySword]);
     expect(myPlayerChar.equipped[0]).toEqual(myAxe);
 });
 test('getAdjustedStats', () => {
