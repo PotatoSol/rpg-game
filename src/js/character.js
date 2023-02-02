@@ -22,6 +22,9 @@ export class Character{
     }
 
     changeEquipment(newEquipment){//not sure how i want to do this yet
+        let slot = newEquipment.getSlot;
+        this.equipped[slot] = newEquipment;
+        return newEquipment;
     }
 
     addStats(statChange){ //takes in a 4 element array 
@@ -53,15 +56,30 @@ export class Character{
 }
 
 export class PlayerCharacter extends Character{
-    constructor(level, race, job, equipped, attributes, stats,name, inventory){
+    constructor(level, race, job, equipped, attributes, stats, name, inventory){
         super(level, race, job, equipped, attributes, stats);
         this.name = name;
         this.inventory = inventory;
     }
+
+    changeEquipment(newEquipment){
+        let slot = newEquipment.getSlot;
+        //remove newequip from inv
+        //put old equip in inv
+        this.inventory.forEach(ele => function(){
+            if(ele.name == newEquipment.name){
+                this.inventory.pop(ele)
+            }
+        });
+        this.inventory.append(this.equipped[slot]);
+        this.equipped[slot] = newEquipment;
+        return newEquipment;
+
+    }
 }
 
 export class MonsterCharacter extends Character{
-    constructor(level, race, job, equipped, attributes, stats, hostility, loot){
+    constructor(level, race, job, equipped, attributes, stats, hostility, loot, id){
         super(level, race, job, equipped, attributes, stats);
         this.hostility = hostility; //-1 for passive characters, 101 for always hostile, if hostility > level, attack, else dont
         this.loot = loot;
