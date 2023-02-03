@@ -1,4 +1,4 @@
-/* Character = [
+/* Character = [ Player, monster, 
     class: [Warrior, Mage, Archer, Rogue] 
     race: [Human, Elf, Goblin, Orc]
     attributes: [Health, Mana]

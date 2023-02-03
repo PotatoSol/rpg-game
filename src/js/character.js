@@ -28,6 +28,9 @@ export class Character{
 
     addLevel(levelDelta){
         this.level += levelDelta;
+        if(levelDelta >= 1){
+            this.attributes[0] = 10 + (1.09 ^ this.level);
+        };
     }
 
     //going to need empty items to fill the equipment slots
@@ -124,7 +127,7 @@ export class PlayerCharacter extends Character{
 }
 
 export class MonsterCharacter extends Character{
-    constructor(level, race, job, equipped, attributes, stats, hostility, loot, id){
+    constructor(level, race, job, equipped, attributes, stats, hostility, loot){
         super(level, race, job, equipped, attributes, stats);
         this.hostility = hostility; //-1 for passive characters, 101 for always hostile, if hostility > level, attack, else dont
         this.loot = loot;

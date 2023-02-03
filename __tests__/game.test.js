@@ -55,3 +55,12 @@ test('generateRandomEquip', () => {
   let myEquip = newGame.generateRandomEquip(90, 'main', 'sword');
   expect(myEquip.equipSlot).toEqual('main');
 });
+test('generateRandomName()', () => {
+  const newGame = new Game();
+  expect(newGame.generateRandomName(4).length).toEqual(4);
+});
+test('generateRandomMonster()', () => {
+  const newGame = new Game();
+  const myMonster = newGame.generateRandomMonster(100);
+  expect(myMonster).toBeTruthy();
+});

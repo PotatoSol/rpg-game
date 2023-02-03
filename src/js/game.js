@@ -41,7 +41,7 @@ export class Game{
     character1.attributes[0] -= damage2;
     character2.attributes[0] -= damage1;
   }
-
+  /*
   combat(character1, character2){
     //handles everything in combat
     //two characters fight
@@ -54,7 +54,7 @@ export class Game{
     //    end game
     
   }
-
+  */
   generateRandomName(length){
     let result = '';
     const characters = 'BCDFGHJKLMNPQRSTVWXYZ';
@@ -200,22 +200,42 @@ export class Game{
     // bronze, iron, steel, adamantite, rune
     // 0-20, 21-40, 41-60, 61-80, 81-100
     let main = 'hammer';
+    let off = 'nail';
     switch(job){
       case 'warrior':
         main = 'sword';
+        off = 'shield';
         break;
       case 'mage':
         main = 'wand';
+        off = 'book';
         break;
       case 'archer':
         main = 'bow';
+        off = 'quiver';
         break;
       case 'rogue':
         main = 'dagger';
+        off = 'knife';
         break;
     }
-    randInt = Math.floor(Math.random() * (level));
-    let value = randInt;
+    let equipArray = [
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'main', main),
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'off', off),
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'head', 'helmet'),
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'chest', 'chestplate'),
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'legs', 'legplate'),
+      this.generateRandomEquip(Math.floor(Math.random() * (level)), 'feet', 'boots')
+    ]
 
+    let statsArray = [
+      Math.floor(Math.random() * (level)),
+      Math.floor(Math.random() * (level)),
+      Math.floor(Math.random() * (level)),
+      Math.floor(Math.random() * (level)),
+    ]
+    //value, slot, type
+    let myMonster = new MonsterCharacter(level, race, job, equipArray, [level*10, level*10], statsArray, Math.floor(Math.random() * (level)), equipArray[Math.floor(Math.random() * (equipArray.length-1))]);
+    return myMonster;
   }
 }

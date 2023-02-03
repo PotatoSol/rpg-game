@@ -30,14 +30,17 @@ export class Equippable extends Item{
       case 'off':
         returnSlot = 1;
         break;
-      case 'chest':
+      case 'head':
         returnSlot = 2;
         break;
-      case 'legs':
+      case 'chest':
         returnSlot = 3;
         break;
-      case 'feet':
+      case 'legs':
         returnSlot = 4;
+        break;
+      case 'feet':
+        returnSlot = 5;
         break;
     }
     return returnSlot;
